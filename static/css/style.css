@@ -1,0 +1,137 @@
+:root {
+  --primary: #2c3e50;
+  --accent: #3498db;
+  --bg: #f7f9fc;
+  --text: #2c3e50;
+  --muted: #7f8c8d;
+  --radius: 16px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.page-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Reusable Box */
+.box {
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  transition: 0.3s ease;
+}
+
+/* Hero */
+.hero-box {
+  text-align: center;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: white;
+}
+
+.hero-box h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-box p {
+  font-size: 1.2rem;
+}
+
+/* Section Headings */
+.section-box h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+/* Grid Utilities */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.category-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Inner Boxes */
+.inner-box {
+  border-left: 5px solid var(--accent);
+  background-color: #f0f4f8;
+}
+
+.inner-box:hover {
+  transform: translateY(-4px);
+}
+
+/* Resume Upload */
+.upload-form {
+  text-align: center;
+}
+
+.file-label {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-selected {
+  margin-top: 1rem;
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.75rem 2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.primary-btn {
+  margin-top: 1rem;
+  background-color: var(--primary);
+  color: white;
+}
+
+.cta-btn {
+  margin-top: 1rem;
+  background-color: white;
+  color: var(--primary);
+  border: 2px solid white;
+}
+
+.cta-btn:hover {
+  background-color: #ecf0f1;
+}
+
+/* CTA Section */
+.cta-box {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  color: white;
+  text-align: center;
+}

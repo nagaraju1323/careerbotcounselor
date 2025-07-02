@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IPS – Indian Police Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: #050d1c;
+      color: #e3f4ff;
+      overflow-x: hidden;
+    }
+
+    .frame {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 40px 5% 60px;
+      position: relative;
+      border-radius: 20px;
+      border: 2px solid #33cfff;
+      background: rgba(5, 18, 40, 0.85);
+      box-shadow: inset 0 0 60px rgba(0, 180, 255, 0.05), 0 0 20px rgba(0, 140, 255, 0.08);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(0,212,255,0.15), rgba(170,240,255,0.1));
+      pointer-events: none;
+      z-index: 0;
+      animation: outerGlowIPS 5s ease-in-out infinite;
+    }
+
+    @keyframes outerGlowIPS {
+      0%, 100% {
+        opacity: 0.2;
+        box-shadow: 0 0 8px rgba(0,212,255,0.15), 0 0 14px rgba(170,240,255,0.1);
+      }
+      50% {
+        opacity: 0.4;
+        box-shadow: 0 0 16px rgba(0,212,255,0.35), 0 0 26px rgba(170,240,255,0.2);
+      }
+    }
+
+    h1 {
+      font-size: 46px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #30c9ff, #92eaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 3px rgba(0, 170, 255, 0.3);
+      padding-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    h1::after {
+      content: "🚓";
+      font-size: 40px;
+    }
+
+    .big-highlight {
+      font-size: 20px;
+      line-height: 1.85;
+      font-weight: 500;
+      color: #daf6ff;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      text-align: justify;
+      background: linear-gradient(to right, rgba(0,150,255,0.05), rgba(0,110,255,0.03));
+      padding: 20px 28px;
+      border-left: 4px solid #5fd4ff;
+      border-radius: 10px;
+      box-shadow: 0 0 14px rgba(100,200,255,0.06);
+    }
+
+    .card-section {
+      margin-top: 32px;
+      padding: 24px;
+      background: rgba(0, 150, 255, 0.05);
+      border-left: 4px solid #70e4ff;
+      border-radius: 12px;
+      transition: 0.3s ease;
+    }
+
+    .card-section:hover {
+      background: rgba(100, 200, 255, 0.06);
+      border: 1px solid #a8f4ff;
+      box-shadow: 0 0 8px rgba(0, 180, 255, 0.15);
+      transform: scale(1.005);
+    }
+
+    .card-section h3 {
+      font-size: 22px;
+      color: #74e6ff;
+      margin-bottom: 14px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 18px;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      color: #92ecff;
+    }
+
+    .highlight {
+      margin-top: 50px;
+      padding: 30px;
+      background: rgba(0, 170, 255, 0.06);
+      border-radius: 16px;
+      border: 2px solid #80eaff;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      animation: glowIPS 2.5s ease-in-out infinite;
+      box-shadow:
+        0 0 10px rgba(0, 180, 255, 0.2),
+        0 0 25px rgba(0, 160, 255, 0.15);
+    }
+
+    @keyframes glowIPS {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 180, 255, 0.25);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(0, 200, 255, 0.35);
+      }
+    }
+
+    .highlight h2 {
+      font-size: 22px;
+      color: #d2f9ff;
+      margin-bottom: 14px;
+    }
+
+    .highlight p {
+      font-size: 17px;
+      color: #ecfcff;
+      line-height: 1.75;
+    }
+
+    .highlight a {
+      display: inline-block;
+      margin-top: 16px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #001d2f;
+      text-decoration: none;
+      padding: 12px 24px;
+      background: #60d8ff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 170, 255, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .highlight a:hover {
+      background: #9af1ff;
+      box-shadow: 0 0 14px rgba(0, 220, 255, 0.35);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 13px 28px;
+      background: #30caff;
+      color: #001b2e;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .btn:hover {
+      background: #7feeff;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+        flex-direction: column;
+      }
+      .frame {
+        padding: 30px 20px 60px;
+      }
+      p, li {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <h1>IPS – Indian Police Service</h1>
+
+    <p class="big-highlight">
+      The IPS shapes India’s internal security, overseeing crime prevention, counter-terror ops, investigations, and public order across every state and union territory.
+    </p>
+
+    <div class="card-section">
+      <h3>Key Roles</h3>
+      <ul>
+        <li>Police Commissioner / SP / IG / DGP</li>
+        <li>Lead national forces like CBI, NIA, CRPF, IB</li>
+        <li>Manage cybercrime, intelligence & security ops</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h3>Eligibility</h3>
+      <ul>
+        <li>Any graduate degree</li>
+        <li>Clear UPSC Civil Services with IPS rank</li>
+        <li>Train at SVPNPA (Hyderabad)</li>
+      </ul>
+    </div>
+
+    <div class="highlight">
+      <h2>📹 Strategy: How to Become an IPS Officer</h2>
+      <p>Topper explains exam strategy, mental prep & service life insights:</p>
+      <a href="https://www.youtube.com/watch?v=wddXMQ5sfx8" target="_blank">
+        ▶ Watch: IPS Preparation & Training Journey
+      </a>
+    </div>
+
+    <a class="btn" href="/category/civil">← Back</a>
+  </div>
+</body>
+</html>

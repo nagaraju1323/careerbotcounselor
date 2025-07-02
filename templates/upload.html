@@ -1,0 +1,28 @@
+<!-- templates/upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Resume – CareerBot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white/10 backdrop-blur-lg p-10 rounded-2xl shadow-xl max-w-xl w-full text-center">
+    <h1 class="text-4xl font-extrabold mb-4 text-cyan-300">📄 Upload Your Resume</h1>
+    <p class="text-gray-300 mb-6">We'll analyze your resume and match your skills with suitable job roles.</p>
+
+    <form method="POST" action="{{ url_for('upload') }}" enctype="multipart/form-data" class="space-y-4">
+      <input type="file" name="resume" accept=".pdf" required
+             class="block w-full text-sm text-white bg-slate-800 border border-cyan-500 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" />
+      <button type="submit"
+              class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 rounded-lg transition duration-300">
+        Analyze Resume 🚀
+      </button>
+    </form>
+
+    <a href="{{ url_for('home') }}" class="mt-6 inline-block text-cyan-300 hover:underline">← Back to Home</a>
+  </div>
+
+</body>
+</html>

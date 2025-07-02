@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ role }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(120deg, #e0f7fa, #fce4ec);
+      background-size: 200% 200%;
+      animation: bgMove 10s ease infinite;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background: white;
+      padding: 3rem;
+      max-width: 880px;
+      width: 90%;
+      border-radius: 28px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      animation: fadeIn 0.8s ease-in-out;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      z-index: -1;
+      background: linear-gradient(45deg, #42a5f5, #ec407a);
+      border-radius: 30px;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: #1a237e;
+      text-shadow: 1px 1px 2px #ccc;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, #42a5f5, #ec407a);
+      margin: 1rem auto 2rem;
+      border-radius: 2px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #00796b;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.15rem;
+      color: #37474f;
+      line-height: 1.8;
+      margin: 0 auto 2.5rem;
+      max-width: 750px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: linear-gradient(to right, #1e88e5, #42a5f5);
+      color: white;
+      text-decoration: none;
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 40px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(66, 165, 245, 0.4);
+    }
+
+    .back-btn:hover {
+      background: linear-gradient(to right, #0d47a1, #1e88e5);
+      box-shadow: 0 6px 20px rgba(33, 150, 243, 0.6);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 2rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .divider {
+        width: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>{{ role }}</h1>
+    <div class="divider"></div>
+    <h2>Career Details in {{ domain.capitalize() }}</h2>
+    <p>{{ description }}</p>
+    <a class="back-btn" href="{{ url_for('category_page', domain=domain) }}">← Back to {{ domain.capitalize() }}</a>
+  </div>
+</body>
+</html>

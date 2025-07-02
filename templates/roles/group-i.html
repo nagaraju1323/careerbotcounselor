@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Group I Services – State Administration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: #0e1e15;
+      color: #eafff6;
+      overflow-x: hidden;
+    }
+
+    .frame {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 40px 5% 60px;
+      position: relative;
+      border-radius: 18px;
+      background: rgba(15, 31, 20, 0.85);
+      box-shadow: inset 0 0 60px rgba(0, 255, 170, 0.05);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(0,255,170,0.2), rgba(0,255,255,0.2));
+      pointer-events: none;
+      z-index: 0;
+      animation: outerGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes outerGlow {
+      0%, 100% {
+        opacity: 0.2;
+        box-shadow: 0 0 8px rgba(0,255,170,0.15), 0 0 14px rgba(0,255,255,0.1);
+      }
+      50% {
+        opacity: 0.4;
+        box-shadow: 0 0 16px rgba(0,255,170,0.35), 0 0 26px rgba(0,255,255,0.2);
+      }
+    }
+
+    h1 {
+      font-size: 56px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #3effc0, #00ffee, #2bdfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow:
+        0 0 3px rgba(0, 255, 200, 0.25),
+        0 0 10px rgba(0, 255, 180, 0.18);
+      border-bottom: 2px solid rgba(0, 255, 170, 0.3);
+      padding-bottom: 12px;
+    }
+
+    .card-section {
+      margin-top: 32px;
+      padding: 24px;
+      background: rgba(0, 255, 170, 0.05);
+      border-left: 4px solid #2bffb0;
+      border-radius: 12px;
+      transition: 0.3s ease;
+    }
+
+    .card-section:hover {
+      background: rgba(0, 255, 170, 0.06);
+      border: 1px solid #50ffd4;
+      box-shadow:
+        0 0 8px rgba(0, 255, 170, 0.15),
+        0 0 18px rgba(0, 255, 170, 0.25);
+      transform: scale(1.005);
+    }
+
+    .card-section h3 {
+      font-size: 22px;
+      color: #1effab;
+      margin-bottom: 14px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 18px;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      color: #62ffc9;
+    }
+
+    .highlight {
+      margin-top: 50px;
+      padding: 30px;
+      background: rgba(0, 255, 170, 0.06);
+      border-radius: 16px;
+      border: 2px solid #30ffaa;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      animation: jwala-glow 3.5s ease-in-out infinite;
+    }
+
+    @keyframes jwala-glow {
+      0%, 100% {
+        box-shadow:
+          0 0 8px rgba(0, 255, 170, 0.2),
+          0 0 18px rgba(0, 255, 170, 0.25),
+          0 0 38px rgba(0, 255, 170, 0.15);
+      }
+      50% {
+        box-shadow:
+          0 0 14px rgba(0, 255, 170, 0.35),
+          0 0 32px rgba(0, 255, 170, 0.3),
+          0 0 48px rgba(0, 255, 170, 0.25);
+      }
+    }
+
+    .highlight * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .highlight h2 {
+      font-size: 24px;
+      color: #c8fff0;
+      margin-bottom: 14px;
+      letter-spacing: 0.6px;
+    }
+
+    .highlight p {
+      font-size: 19px;
+      color: #defff3;
+      line-height: 1.75;
+    }
+
+    .highlight a {
+      display: inline-block;
+      margin-top: 16px;
+      font-weight: 600;
+      font-size: 17px;
+      color: #003528;
+      text-decoration: none;
+      padding: 12px 24px;
+      background: #38ffcd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 255, 170, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .highlight a:hover {
+      background: #2bffb0;
+      box-shadow: 0 0 14px rgba(0, 255, 170, 0.35);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 13px 28px;
+      background: #2bffb0;
+      color: #003528;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .btn:hover {
+      background: #5effcc;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 38px;
+        letter-spacing: 1px;
+        padding-bottom: 8px;
+      }
+      .frame { padding: 40px 20px 60px; }
+      p, li { font-size: 17px; }
+    }
+    .big-highlight {
+  font-size: 22px;
+  line-height: 1.85;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: justify;
+  background: linear-gradient(to right, rgba(0,255,170,0.04), rgba(0,255,255,0.02));
+  padding: 20px 28px;
+  border-left: 4px solid #2bffb0;
+  border-radius: 10px;
+  box-shadow: 0 0 14px rgba(0,255,170,0.06);
+}
+
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <h1>Group I Services – State Administration 🏛</h1>
+
+  <p class="big-highlight">
+  Group I exams empower candidates to lead state departments as high-ranking officers. These roles form the backbone of local governance, enabling them to directly implement development projects and spearhead administrative reforms across entire districts.
+</p>
+
+
+    <div class="card-section">
+      <h3>Top Roles</h3>
+      <ul>
+        <li>Deputy Collector / RDO / MRO</li>
+        <li>DSP – Deputy Superintendent of Police</li>
+        <li>Municipal Commissioner / Commercial Tax Officer</li>
+        <li>District Registrar / Treasury Officer</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h3>Eligibility</h3>
+      <ul>
+        <li>Bachelor’s degree from any recognized university</li>
+        <li>Clear APPSC/TSPSC Group I exam (Prelims, Mains, Interview)</li>
+        <li>Selection process varies by State PSC</li>
+      </ul>
+    </div>
+
+  <div class="highlight">
+  <h2>📽 Group I Preparation Video by a Topper</h2>
+  <p>
+    Learn exam pattern, strategy, booklists & mindset tips from a real APPSC ranker:
+  </p>
+  <a href="https://www.youtube.com/watch?v=hyqT6iKNaZ4" target="_blank">
+    ▶ Watch: Group I Strategy & Prep Tips (APPSC)
+  </a>
+</div>
+
+<a class="btn" href="/category/civil">← Back</a>
+</body>
+</html>

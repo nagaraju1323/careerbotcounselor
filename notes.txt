@@ -1,0 +1,71 @@
+What is MongoDB?
+MongoDB is NoSQL database, which means
+1.It doesn't use tablets or schemas like MySQL/PostgresSQL
+2.It stores data in a flexible JSON - like format called BSON (Binary JSON)
+3.It's document-oriented, scalable and superfast for moodern web
+
+where we use MD MongoDB can be for webapplication with frequent upddates.
+2.Large scale data with high speed(Rapido)
+3.Real time chattiing app like Whatapp etc...
+
+
+what are the key concepts?
+Database -----> A contatiner for collections.
+Collection -----> a group if docus
+Document -----> a single record
+field----> key value pair
+_id---> unique id for every document
+
+
+
+
+example doc?
+{
+    "_id":"1234",
+    "name" : "venky",
+    "course" :['python','java'],
+    "enroll":'30-06-2025'
+    
+
+}
+
+
+
+
+
+
+
+
+
+Continues Integration:
+    Continues intergation  means developers frequently merge their code into shared repository often several times a day
+    Each push triggers and automated pipeline
+    1.Compiles the code
+    2. Runs tests.
+    3.reports errors.
+    THe is to cash bugs 
+    CI insures that your application is stable , multiple members in a team can the work that application simantionusly
+
+Continuos Delivery:
+    Onces CI is successful Continues Delivery insures that the code is ready for deployment to production at any time
+    However actually deployment is manually
+    This phase includes:
+        Buildin  application
+        Running more advance application
+        pacakaging the app
+
+Contious Deployment:
+    It is automate  deployment to  production without human interaction. As so as your code pass test and build is successful.The app is deployed live.
+   
+   
+    YAML ---> Its is another markup is human readable data format use to  define configuration files.
+        where is YAML use
+            defining CICD work flow 
+            Kubernets(k8's) is google product
+            Docker compose
+            Assimble playbooks
+            Automate API'
+            Devops
+
+
+Docker is a tool it's pacaakege your application and its dependencies in a container.So it runs the same every where.Dockers makes deployement fast and pertable.Docker is required for scalable CICD,microperations and Devops

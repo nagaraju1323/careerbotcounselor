@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IAS – Indian Administrative Service</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: #1b1205;
+      color: #fff3e0;
+      overflow-x: hidden;
+    }
+
+    .frame {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 40px 5% 60px;
+      position: relative;
+      border-radius: 20px;
+      border: 2px solid #ffa94d;
+      background: rgba(42, 24, 6, 0.85);
+      box-shadow: inset 0 0 60px rgba(255, 165, 80, 0.05), 0 0 20px rgba(255, 140, 0, 0.08);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255,174,77,0.15), rgba(255,230,180,0.1));
+      pointer-events: none;
+      z-index: 0;
+      animation: outerGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes outerGlow {
+      0%, 100% {
+        opacity: 0.2;
+        box-shadow: 0 0 8px rgba(255,174,77,0.15), 0 0 14px rgba(255,230,180,0.1);
+      }
+      50% {
+        opacity: 0.4;
+        box-shadow: 0 0 16px rgba(255,174,77,0.35), 0 0 26px rgba(255,230,180,0.2);
+      }
+    }
+
+    h1 {
+      font-size: 46px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #ffae42, #ffd28a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 3px rgba(255, 180, 100, 0.25);
+      padding-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    h1::after {
+      content: "🧑‍✈";
+      font-size: 40px;
+    }
+
+    .big-highlight {
+      font-size: 20px;
+      line-height: 1.85;
+      font-weight: 500;
+      color: #fff3e5;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      text-align: justify;
+      background: linear-gradient(to right, rgba(255,190,110,0.05), rgba(255,180,90,0.03));
+      padding: 20px 28px;
+      border-left: 4px solid #ffbb66;
+      border-radius: 10px;
+      box-shadow: 0 0 14px rgba(255,175,90,0.06);
+    }
+
+    .card-section {
+      margin-top: 32px;
+      padding: 24px;
+      background: rgba(255, 165, 80, 0.05);
+      border-left: 4px solid #ffc773;
+      border-radius: 12px;
+      transition: 0.3s ease;
+    }
+
+    .card-section:hover {
+      background: rgba(255, 180, 100, 0.06);
+      border: 1px solid #ffdfa4;
+      box-shadow: 0 0 8px rgba(255, 180, 90, 0.15);
+      transform: scale(1.005);
+    }
+
+    .card-section h3 {
+      font-size: 22px;
+      color: #ffc773;
+      margin-bottom: 14px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 18px;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
+      color: #ffcc99;
+    }
+
+    .highlight {
+      margin-top: 50px;
+      padding: 30px;
+      background: rgba(255, 180, 90, 0.06);
+      border-radius: 16px;
+      border: 2px solid #ffc773;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      z-index: 1;
+      animation: glowFade 3.5s ease-in-out infinite;
+      box-shadow:
+        0 0 10px rgba(255, 180, 90, 0.2),
+        0 0 25px rgba(255, 160, 70, 0.15);
+    }
+
+    @keyframes glowFade {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 180, 90, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 28px rgba(255, 180, 90, 0.35);
+      }
+    }
+
+    .highlight h2 {
+      font-size: 22px;
+      color: #ffe8c2;
+      margin-bottom: 14px;
+    }
+
+    .highlight p {
+      font-size: 17px;
+      color: #ffebcd;
+      line-height: 1.75;
+    }
+
+    .highlight a {
+      display: inline-block;
+      margin-top: 16px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #442a00;
+      text-decoration: none;
+      padding: 12px 24px;
+      background: #ffbb66;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 180, 100, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .highlight a:hover {
+      background: #ffcf8a;
+      box-shadow: 0 0 14px rgba(255, 200, 120, 0.35);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 13px 28px;
+      background: #ffb347;
+      color: #442100;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    .btn:hover {
+      background: #ffd28a;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+        flex-direction: column;
+      }
+      .frame {
+        padding: 30px 20px 60px;
+      }
+      p, li {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <h1>IAS – Indian Administrative Service</h1>
+
+    <p class="big-highlight">
+      The IAS empowers civil servants to lead the nation’s administration, policy implementation, and crisis response across districts and ministries.
+    </p>
+
+    <div class="card-section">
+      <h3>Roles</h3>
+      <ul>
+        <li>District Collector or Magistrate</li>
+        <li>Ministry Secretaries at the Centre</li>
+        <li>Policy formulation & governance</li>
+      </ul>
+    </div>
+
+    <div class="card-section">
+      <h3>Eligibility</h3>
+      <ul>
+        <li>Any graduate degree</li>
+        <li>UPSC Civil Services Exam with IAS rank</li>
+        <li>Training at LBSNAA (Mussoorie)</li>
+      </ul>
+    </div>
+
+    <div class="highlight">
+      <h2>🎯 Ultimate IAS Preparation Guide</h2>
+      <p>
+        Learn how toppers cracked the UPSC CSE with smart strategy, study routines, and mental focus — explained in this detailed walkthrough:
+      </p>
+      <a href="https://www.youtube.com/watch?v=Q3aL8tXCCK0" target="_blank">
+        📺 Watch: How to Become an IAS Officer (2025)
+      </a>
+    </div>
+
+    <a class="btn" href="/category/civil">← Back</a>
+  </div>
+</body>
+</html>

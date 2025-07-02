@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }} Roles</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white p-8 min-h-screen">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl font-extrabold mb-6 text-center">{{ title }} – Job Roles</h2>
+    <ul class="space-y-5">
+      {% for role in roles %}
+        <li>
+          <a href="{{ url_for('role_page', domain=domain, role=role) }}"
+             class="block bg-gradient-to-r from-sky-700 to-indigo-800 p-5 rounded-xl shadow-md hover:shadow-lg transition text-white font-semibold text-xl">
+            🔍 {{ role.upper().replace('-', ' ') }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="mt-10 text-center">
+      <a href="/" class="text-cyan-400 hover:underline text-lg">⬅ Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
