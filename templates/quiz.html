@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Quiz</title></head>
+<body>
+    <h1>Quiz Time!</h1>
+    <form method="POST" action="/quiz/submit">
+        {% if questions %}
+            {% for q in questions %}
+                <div>
+                    <p><strong>{{ q.question }}</strong></p>
+                    {% for option in q.options %}
+                        <label>
+                            <input type="radio" name="q{{ q.id }}" value="{{ option.label }}">
+                            {{ option.label }}. {{ option.text }}
+                        </label><br>
+                    {% endfor %}
+                </div>
+                <hr>
+            {% endfor %}
+            <button type="submit">Submit Quiz</button>
+        {% else %}
+            <p>No quiz questions available.</p>
+        {% endif %}
+    </form>
+</body>
+</html>
